@@ -21,7 +21,7 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
   // ------------------ LOAD DATA ------------------
   const loadData = () => {
-    fetch("http://localhost:5000/users")
+    fetch("https://crud-backend-2-wh7t.onrender.com/users")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.log(err));
@@ -55,7 +55,7 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
       age: age,
     };
 
-    const res = await fetch("http://localhost:5000/users", {
+    const res = await fetch("https://crud-backend-2-wh7t.onrender.com/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
@@ -78,7 +78,7 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
       age: age,
     };
 
-    const res = await fetch(`http://localhost:5000/users/${id}`, {
+    const res = await fetch(`https://crud-backend-2-wh7t.onrender.com/users${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedUser),
@@ -95,7 +95,7 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   // ------------------ DELETE USER ------------------
   async function handleDelete(id) {
     if (window.confirm("Are you sure you want to delete?")) {
-      await fetch(`http://localhost:5000/users/${id}`, {
+      await fetch(`https://crud-backend-2-wh7t.onrender.com/users${id}`, {
         method: "DELETE",
       });
       loadData();

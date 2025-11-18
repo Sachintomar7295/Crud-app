@@ -78,11 +78,11 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
       age: age,
     };
 
-    const res = await fetch(`https://crud-backend-2-wh7t.onrender.com/users${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedUser),
-    });
+    const res = await fetch(`https://crud-backend-2-wh7t.onrender.com/users/${id}`, {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(updatedUser),
+});
 
     if (res.ok) {
       alert("Updated Successfully!");
@@ -95,9 +95,10 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   // ------------------ DELETE USER ------------------
   async function handleDelete(id) {
     if (window.confirm("Are you sure you want to delete?")) {
-      await fetch(`https://crud-backend-2-wh7t.onrender.com/users${id}`, {
-        method: "DELETE",
-      });
+      await fetch(`https://crud-backend-2-wh7t.onrender.com/users/${id}`, {
+  method: "DELETE",
+});
+
       loadData();
     }
   }
